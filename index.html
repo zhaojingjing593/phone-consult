@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>电话咨询</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+            background: #fff;
+        }
+
+        /* 图片容器 */
+        .image-wrapper {
+            width: 100%;
+            padding-bottom: 90px; /* 底部固定按钮留空间 */
+        }
+
+        .image-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ===== 底部固定栏 ===== */
+        .call-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 10px 20px;
+            padding-bottom: max(10px, env(safe-area-inset-bottom));
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== 主按钮（大） ===== */
+        .call-btn {
+            flex: 1;
+            max-width: 300px;
+            padding: 16px 0;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #fff;
+            background: #e60012;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+
+            /* 动态缩放动画 */
+            animation: pulse-main 1.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-main {
+            0%, 100% { transform: scale(1); }
+            50%      { transform: scale(1.06); }
+        }
+
+        .call-btn:active {
+            background: #c5000f;
+        }
+
+        /* ===== 页面右侧悬浮小按钮 ===== */
+        .call-btn-small {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: #e60012;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.2;
+            box-shadow: 0 4px 12px rgba(230, 0, 18, 0.4);
+
+            /* 动态缩放动画 */
+            animation: pulse-small 0.9s ease-in-out infinite;
+        }
+
+        @keyframes pulse-small {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50%      { transform: translateY(-50%) scale(1.12); }
+        }
+
+        .call-btn-small:active {
+            background: #c5000f;
+        }
+
+        .call-btn-small .icon-phone {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="image-wrapper">
+        <img src="图片新/10.jpg" alt="宣传图片">
+    </div>
+
+    <div class="call-bar">
+        <a class="call-btn" href="tel:4001188961">
+            电话咨询
+        </a>
+    </div>
+
+    <a class="call-btn-small" href="tel:4001188961">
+        <span class="icon-phone">📞</span>
+        拨打电话
+    </a>
+
+</body>
+</html>
